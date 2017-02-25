@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secret.MY_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.23' , 'localhost']
+ALLOWED_HOSTS = ['51.255.42.240' , 'localhost']
 
 # Application definition
 
@@ -126,14 +126,6 @@ STATICFILES_DIRS = (
     os.path.join(
          BASE_DIR,
          'commonstatic/'
-    ),
-    os.path.join(
-         BASE_DIR,
-         'landing/static/'
-    ),
-    os.path.join(
-         BASE_DIR,
-         'blog/static/'
     ),
 )
 
