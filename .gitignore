@@ -92,3 +92,4 @@ techpills/landing/management/commands/_ytprivate.py
 techpills/static/
 techpills/db.sqlite3
 techpills/techpills/secret.py
+techpillsenv/
