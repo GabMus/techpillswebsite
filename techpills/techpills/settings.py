@@ -24,9 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secret.MY_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# TODO: empty this vvv
 ALLOWED_HOSTS = ['192.168.1.23' , 'localhost']
 
 # Application definition
