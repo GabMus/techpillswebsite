@@ -1,0 +1,34 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<dom-module id="home-shortcut">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                top: 10px;
+                left: 10px;
+                position: absolute;;
+                display: block;
+                height: auto;
+            }
+        </style>
+            <paper-button onclick="location.href='/'">
+                <iron-icon icon="arrow-back"></iron-icon>
+                HOME
+            </paper-button>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'home-shortcut',
+            properties: {
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>

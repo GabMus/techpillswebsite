@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="theme-color" content="#3F51B5">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+        <link rel="shortcut icon" type="image/png"
+            href="{% static 'favicon.ico' %}" />
+        <link rel="apple-touch-icon" href="{% static 'icon.png' %}" />
+
+        <title>Tech Pills</title>
+
+        <script src="{% static 'bower_components/webcomponentsjs/webcomponents-lite.min.js' %}"></script>
+        <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+
+        <!-- Custom stylesheet -->
+        <link rel="import"
+            href="{% static 'style.html' %}">
+
+        <!-- Polymer components -->
+
+        <link rel="import"
+            href="{% static 'bower_components/paper-button/paper-button.html' %}">
+
+        <!-- Custom elements -->
+
+        <link rel="import"
+            href="{% static 'elements/h-box.html' %}">
+        <link rel="import"
+            href="{% static 'elements/v-box.html' %}">
+        <link rel="import"
+            href="{% static 'elements/onethird-box.html' %}">
+        <link rel="import"
+            href="{% static 'elements/article-card.html' %}">
+        <link rel="import"
+            href="{% static 'elements/blogpage-navigator.html' %}">
+        <link rel="import"
+            href="{% static 'elements/home-shortcut.html' %}">
+        <link rel="import"
+            href="{% static 'elements/footer-element.html' %}">
+    </head>
+    <body class="blog">
+        <home-shortcut></home-shortcut>
+        <onethird-box bg="{% static 'assets/laptop.svg' %}">
+            <h1 class="blogheader" onclick="location.href='/blog'">
+                Tech Pills<br />
+                Blog
+            </h1>
+        </onethird-box>
+
+        <v-box>
+            {% if articles|length == 0 %}
+                <div style="color:black; display: inline-block; text-align: center;">
+                    <h1>Nothing here!</h1>
+                    <paper-button onclick="location.href='/'">Go Back Home</paper-button>
+                </div>
+            {% else %}
+                {% for article in articles %}
+                    <article-card
+                        {% if not articleview %}
+                            preview
+                        {% endif %}
+                        id="{{article.id}}"
+                        title="{{article.title}}"
+                        {% if article.pic %}
+                            pic="{{article.pic}}"
+                        {% endif %}
+                        content="{{article.content}}">
+                    </article-card>
+                {% endfor %}
+            {% endif %}
+            {% if not articleview %}
+                <blogpage-navigator
+                currentpage="{{currentpage}}"
+                {% if hide_prev %}
+                    prev
+                {% endif %}
+                {% if hide_next %}
+                    next
+                {% endif %}
+                ></blogpage-navigator>
+            {% endif %}
+        </v-box>
+
+        <footer-element></footer-element>
+        <script>
+        </script>
+    </body>
+</html>

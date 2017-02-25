@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href=
+"../bower_components/iron-flex-layout/iron-flex-layout.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="v-box">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                display: block;
+                @apply(--layout-center);
+                @apply(--layout-center-justified);
+                width: auto;
+            }
+
+            .vbox {
+                width: auto;
+                @apply(--layout-vertical);
+                @apply(--layout-center);
+            }
+        </style>
+		<div class="vbox">
+			<content></content>
+		</div>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'v-box',
+            properties: {
+                wrap: Boolean,
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>

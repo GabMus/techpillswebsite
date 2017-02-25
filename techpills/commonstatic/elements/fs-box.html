@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href=
+"../bower_components/iron-flex-layout/iron-flex-layout.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="fs-box">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host, .fs-cont {
+                width: 100%;
+                min-height: 100vh;
+                @apply(--layout-vertical);
+                @apply(--layout-center);
+                @apply(--layout-center-justified);
+            }
+
+            .fs-cont {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed !important;
+            }
+        </style>
+        <div class="fs-cont" style$="background-image: url([[bg]])">
+            <content></content>
+        </div>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'fs-box',
+            properties: {
+                bg: String,
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>

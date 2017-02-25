@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<dom-module id="footer-element">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                display: block;
+                height: auto;
+                padding: 6px;
+                background-color: #151718;
+                width: auto;
+                @apply(--layout-vertical);
+                @apply(--layout-center);
+                font-size: 10pt;
+                color: #A1A1A1;
+            }
+            a {
+                color: #7E57C2;
+                text-decoration: none;
+            }
+        </style>
+            <div>
+                <p>
+                    The code used to make this website is free software. You can find it on GitHub following <a href="https://github.com/gabmus/techpillswebsite">this link</a>.
+                </p>
+                <p>
+                    © 2017 Gabriele Musco. All rights reserved.
+                </p>
+            </div>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'footer-element',
+            properties: {
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>

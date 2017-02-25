@@ -1,0 +1,91 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="v-box.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="ytvid-element">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                display: block;
+                height: auto;
+                margin: 24px;
+            }
+
+            .vidpic {
+                max-height: 300px;
+                min-height: 150px;
+                height: 27vh;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+            }
+
+            paper-fab {
+                cursor: pointer;
+                position: absolute;
+                bottom: 70px;
+                right: 24px;
+                z-index: 1000;
+            }
+
+            .cont {
+                color: black;
+            }
+
+            .descbox {
+                z-index: 100;
+                position: relative;
+                overflow: scroll;
+                min-height: 100px;
+                width: 100%;
+            }
+
+            .desctext {
+                font-size: 16pt;
+                display: inline-block;
+                text-align: left;
+                width: 95%;
+                margin-top: 40px;
+                margin-right: 12px;
+                margin-left: 12px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                word-wrap: break-word;
+            }
+        </style>
+        <paper-card class="cont">
+            <v-box>
+                <img class="vidpic" src="[[imgsrc]]" />
+                <paper-fab icon="av:play-arrow" onclick$="location.href='[[vidurl]]'"></paper-fab>
+                <div class="descbox">
+                    <span class="desctext">
+                        {{title}}
+                    </span>
+                </div>
+            </v-box>
+        </paper-card>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'ytvid-element',
+            properties: {
+                title: String,
+                imgsrc: String,
+                vidurl: String,
+            },
+            ready: function() {
+            /*    $('#floating-logo').jqFloat({
+                    width: 0,
+                    height: 30,
+                    speed: 2000
+                });*/
+            }
+        });
+    </script>
+</dom-module>

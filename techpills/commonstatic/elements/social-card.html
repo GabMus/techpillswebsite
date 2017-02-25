@@ -1,0 +1,83 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="v-box.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="social-card">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                display: block;
+                height: auto;
+                margin: 24px;
+            }
+
+            paper-fab {
+                cursor: pointer;
+                position: absolute;
+                bottom: 50px;
+                right: 24px;
+                z-index: 1000;
+            }
+
+            .cont {
+                color: black;
+                --paper-card-header-color: white;
+                --paper-card-header-image: {
+                    max-width: 450px;
+                    max-height: 225px;
+                    height: auto;
+                    width: auto;
+                };
+            }
+
+            .descbox {
+                min-height: 80px;
+                width: 100%;
+            }
+
+            .desctext {
+                font-size: 16pt;
+                display: inline-block;
+                text-align: left;
+                width: 100%;
+                margin-left: 12px;
+                margin-top: 30px;
+                margin-right: 12px;
+            }
+        </style>
+        <paper-card class="cont" heading="[[name]]" image="[[pic]]">
+            <v-box>
+                <paper-fab icon="arrow-forward" onclick$="location.href='[[link]]'"></paper-fab>
+                <div class="descbox">
+                    <span class="desctext">
+                        {{nick}}
+                    </span>
+                </div>
+            </v-box>
+        </paper-card>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'social-card',
+            properties: {
+                name: String,
+                link: String,
+                nick: String,
+                pic: String,
+            },
+            ready: function() {
+            /*    $('#floating-logo').jqFloat({
+                    width: 0,
+                    height: 30,
+                    speed: 2000
+                });*/
+            }
+        });
+    </script>
+</dom-module>

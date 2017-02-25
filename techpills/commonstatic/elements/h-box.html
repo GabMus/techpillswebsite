@@ -1,0 +1,46 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href=
+"../bower_components/iron-flex-layout/iron-flex-layout.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="h-box">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                width: 100%;
+                display: block;
+                @apply(--layout-center);
+                @apply(--layout-center-justified);
+            }
+
+            .hbox {
+                @apply(--layout-horizontal);
+                @apply(--layout-center-justified);
+            }
+
+            .wrap {
+                width: 100%;
+                @apply(--layout-around-justified);
+                @apply(--layout-wrap);
+            }
+        </style>
+		<div class$="hbox {{conditional(wrap)}}">
+			<content></content>
+		</div>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'h-box',
+            properties: {
+                wrap: Boolean,
+            },
+            conditional: function(cond) {
+                return wrap ? 'wrap' : '';
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>

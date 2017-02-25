@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href=
+"../bower_components/iron-flex-layout/iron-flex-layout.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- <script src="../ext-js/jqfloat.min.js"></script> -->
+<dom-module id="floating-img">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                display: block;
+                height: auto;
+                @apply(--layout-horizontal);
+                @apply(--layout-center);
+            }
+            #floating-logo {
+                height: 50vh;
+            }
+        </style>
+        <img src="[[imgsrc]]" id="floating-logo" />
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'floating-img',
+            properties: {
+                imgsrc: String,
+            },
+            ready: function() {
+                
+            },
+        });
+    </script>
+</dom-module>

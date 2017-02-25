@@ -1,0 +1,66 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="v-box.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../ext-js/articlerenderer.js"></script>
+<dom-module id="blogpage-navigator">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                display: block;
+                height: auto;
+                width: 95%;
+                max-width: 900px;
+            }
+
+            .right-align {
+                width: 100%;
+                @apply(--layout-horizontal);
+                @apply(--layout-end-justified);
+            }
+
+            .whitefab {
+                --paper-fab-background: white;
+                color: black;
+                margin: 6px;
+            }
+        </style>
+        <div class="right-align">
+            <paper-fab
+            id="backfab"
+            class="whitefab"
+            icon="arrow-back" mini disabled="{{prev}}"></paper-fab>
+            <paper-fab
+            id="nextfab"
+            class="whitefab"
+            icon="arrow-forward" disabled="{{next}}"></paper-fab>
+        </div>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'blogpage-navigator',
+            properties: {
+                currentpage: Number,
+                next: Boolean,
+                prev: Boolean,
+            },
+            ready: function() {
+                var page=this.currentpage;
+                if (!this.next) {
+                    $("#nextfab").on("click", function() {
+                        location.href="/blog/"+(page+1);
+                    });
+                }
+                if (!this.prev) {
+                    $("#backfab").on("click", function() {
+                        location.href="/blog/"+(page-1);
+                    });
+                }
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href=
+"../bower_components/iron-flex-layout/iron-flex-layout.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="onethird-box">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host, .ot-cont {
+                width: 100%;
+                min-height: 30vh;
+                @apply(--layout-vertical);
+                @apply(--layout-center);
+                @apply(--layout-center-justified);
+            }
+
+            .ot-cont {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                /*background-attachment: fixed !important;*/
+            }
+        </style>
+        <div class="ot-cont" style$="background-image: url([[bg]])">
+            <content></content>
+        </div>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'onethird-box',
+            properties: {
+                bg: String,
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>
