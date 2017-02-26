@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="theme-color" content="#3F51B5">
+        <meta name="theme-color" content="#7E57C2">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
         <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
@@ -11,7 +11,13 @@
             href="{% static 'favicon.ico' %}" />
         <link rel="apple-touch-icon" href="{% static 'icon.png' %}" />
 
-        <title>Tech Pills</title>
+        <title>
+            {% if not articleview %}
+                Tech Pills Blog
+            {% else %}
+                {{ articles.0.title }} - Tech Pills Blog
+            {% endif %}
+        </title>
 
         <script src="{% static 'bower_components/webcomponentsjs/webcomponents-lite.min.js' %}"></script>
         <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>

@@ -16,9 +16,10 @@
             }
             #floating-logo {
                 height: 50vh;
+                cursor: pointer;
             }
         </style>
-        <img src="[[imgsrc]]" id="floating-logo" />
+        <img src="[[imgsrc]]" id="floating-logo" onclick="location.href='https://youtube.com/TechPillsNet'"/>
     </template>
     {% endverbatim %}
     <script>
@@ -28,7 +29,6 @@
                 imgsrc: String,
             },
             ready: function() {
-                
             },
         });
     </script>
