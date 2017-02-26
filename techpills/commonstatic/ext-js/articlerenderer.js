@@ -11,16 +11,16 @@ function isPic(s) {
 function renderText(s, cont) {
     $(
         "<p>"+
-        s.replace('\n', '<br />')
-        .replace('[b]', '<strong>')
-        .replace('[/b]', '</strong>')
-        .replace('[u]', '<u>')
-        .replace('[/u]', '</u>')
-        .replace('[i]', '<em>')
-        .replace('[/i]', '</em>')
-        .replace('[url]', '<a href=\"')
-        .replace('[/url]', '\">')
-        .replace('[//url]', '</a>')+
+        s.replace(/\n/g, '<br />')
+        .replace(/\[b\]/g, '<strong>')
+        .replace(/\[\/b\]/g, '</strong>')
+        .replace(/\[u\]/g, '<u>')
+        .replace(/\[\/u\]/g, '</u>')
+        .replace(/\[i\]/g, '<em>')
+        .replace(/\[\/i\]/g, '</em>')
+        .replace(/\[url\]/g, '<a href=\"')
+        .replace(/\[\/url\]/g, '\">')
+        .replace(/\[\/\/url\]/g, '</a>')+
         "</p>"
     ).appendTo(cont);
 }
