@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secret.MY_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['51.255.42.240' , 'localhost']
+ALLOWED_HOSTS = ['51.255.42.240' , 'localhost' , 'techpills.technology', 'vps380315.ovh.net']
 
 # Application definition
 
