@@ -26,7 +26,10 @@ SECRET_KEY = secret.MY_SECRET
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['51.255.42.240' , 'localhost' , 'techpills.technology', 'vps380315.ovh.net']
+SITE_ID=2
+
+ALLOWED_HOSTS = ['51.255.42.240' , 'localhost' , 'techpills.technology', 'www.techpills.technology', 'vps380315.ovh.net']
+#ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -35,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'landing',
     'blog',
 ]
@@ -78,7 +83,7 @@ WSGI_APPLICATION = 'techpills.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'dbdir/db.sqlite3'),
     }
 }
 

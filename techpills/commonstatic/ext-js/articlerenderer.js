@@ -17,7 +17,10 @@ function renderText(s, cont) {
         .replace('[u]', '<u>')
         .replace('[/u]', '</u>')
         .replace('[i]', '<em>')
-        .replace('[/i]', '</em>')+
+        .replace('[/i]', '</em>')
+        .replace('[url]', '<a href=\"')
+        .replace('[/url]', '\">')
+        .replace('[//url]', '</a>')+
         "</p>"
     ).appendTo(cont);
 }
