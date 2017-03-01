@@ -31,11 +31,22 @@
                 display: inline-block;
                 text-align: justify;
             }
+
+			.datetime {
+				position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 10pt;
+                font-style: italic;
+                color: #757575;
+                text-align: right;
+			}
         </style>
         <paper-card class="cont" image="[[pic]]">
             <v-box>
                 <div class="card-content desctext">
                     <h2>{{title}}</h2>
+					<span class="datetime">{{datetime}}</span>
                 </div>
             </v-box>
         </paper-card>
@@ -49,6 +60,7 @@
                 title: String,
                 pic: String,
                 content: String,
+                datetime: String,
                 preview: Boolean,
             },
             ready: function() {

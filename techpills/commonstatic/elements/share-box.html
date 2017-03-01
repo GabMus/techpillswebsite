@@ -1,0 +1,68 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="h-box.html">
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<dom-module id="share-box">
+    {% verbatim %}
+    <template>
+        <style is="custom-style">
+            /* local DOM styles go here */
+            :host {
+                position: relative;
+                display: block;
+                height: auto;
+                width: 100%;
+                margin: 24px;
+            }
+
+            .cont {
+                display: block;
+                margin: auto;
+                width: 100%;
+                max-width: 900px;
+                color: black;
+                --paper-card-header-color: white;
+            }
+
+            .desctext {
+                width: 80%;
+                display: block;
+                text-align: center;
+                margin: auto;
+            }
+
+            .socialpic {
+                width: 70px;
+                height: 70px;
+                cursor: pointer;
+            }
+        </style>
+        <paper-card class="cont">
+            <div class="card-content desctext">
+                <h2>Share this post</h2>
+                <h-box wrap>
+                    <img class="socialpic"
+                    src="/static/assets/social/twitter-icon.svg"
+                    onclick="window.open('https://twitter.com/home?status='+location.href, '_blank')" />
+                    <img class="socialpic"
+                    src="/static/assets/social/gplus-icon.svg"
+                    onclick="window.open('https://plus.google.com/share?url='+location.href, '_blank')" />
+                    <img class="socialpic"
+                    src="/static/assets/social/facebook-icon.svg"
+                    onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+location.href, '_blank')" />
+                </h-box>
+            </div>
+        </paper-card>
+    </template>
+    {% endverbatim %}
+    <script>
+        Polymer({
+            is: 'share-box',
+            properties: {
+            },
+            ready: function() {
+            }
+        });
+    </script>
+</dom-module>
